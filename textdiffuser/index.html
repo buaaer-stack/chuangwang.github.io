@@ -167,24 +167,6 @@
 
 </style>
 
-<!-- 
-<!-- Teaser. -->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <div>
-        <img src="./static/images/teaser.png" alt="teaser" class="center">
-      </div>
-      <h2 class="subtitle has-text">
-        <span class="dnerf">Uni-ControlNet</span>, an approach that allows for the simultaneous utilization of different local controls and global controls in a flexible and composable manner within one model.
-      </h2>
-
-    </div>
-  </div>
-</section> -->
-
-
-
 <section class="section">
   <div class="container is-max-desktop">
   <!-- <div class="container"> -->
@@ -215,19 +197,12 @@
       <div class="column is-full-width">
         <br />
         <h2 class="title is-3">Pipeline</h2>
-          <img src="./static/images/pipeline1.png" alt="pipeline1" style="width:70%; ">
+          <img src="./static/images/architecture.jpg" alt="pipeline1" style="width:70%; ">
         <div class="content has-text-justified">
           <p>
-             Uni-ControlNet categorizes various conditions into two distinct groups: local conditions and global conditions. Accordingly, two additional adapters are added: local control adapter and global control adapter.
+            TextDiffuser consists of two stages. In the first Layout Generation stage, a Transformer-based encoder-decoder model generates character-level segmentation masks that indicate the layout of keywords in images from text prompts. In the second Image Generation stage, a diffusion model generates images conditioned on noisy features, segmentation masks, feature masks, and masked features (from left to right) along with text prompts. The feature masks can cover the entire or part of the image, corresponding to whole-image and part-image generation. The diffusion model learns to denoise features progressively with a denoising and character-aware loss. Please note that the diffusion model operates in the latent space, but we use the image pixels for better visualization.
           </p>
         </div>
-        <img src="./static/images/pipeline2.png" alt="pipeline2" style="width:70%; ">
-        <div class="content has-text-justified">
-          <p>
-           For local controls, we introduce a multi-scale condition injection strategy that uses a shared local condition encoder adapter. And for global controls, we employ another shared global condition encoder to convert them into conditional tokens, which are then concatenated with text tokens. These two adapters can be separately trained without the need of additional joint training.
-          </p>
-        </div>
-
       </div>
     </div>
 
@@ -238,16 +213,30 @@
         <br />
         <h2 class="title is-3">More Results</h2>
 
-        <img src="./static/images/more_results_single.png" alt="more_results_single" style="width:70%; ">
+        <img src="./static/images/result.jpg" alt="more_results_single" style="width:70%; ">
         <div text-align:center>
           <p class="center">
-           More visual results of Uni-ControlNet for single condition setting.
+            Visualizations of whole-image generation compared with existing methods. The first three
+            cases are generated from prompts and the last three cases are from given printed template images.
           </p>
         </div>
-        <img src="./static/images/more_results_multi.png" alt="more_results_multi" style="width:70%; ">
+        <img src="./static/images/inpaint.jpg" alt="more_results_multi" style="width:70%; ">
         <div text-align:center>
           <p class="center">
-           More visual results of Uni-ControlNet for multi-conditions setting.
+            Visualizations of part-image generation (text inpainting) from given images.
+          </p>
+        </div>
+        <img src="./static/images/table1.jpg" alt="more_results_multi" style="width:70%; ">
+        <div text-align:center>
+          <p class="center">
+            The performance of text-to-image compared with existing methods. TextDiffuser performs
+the best regarding CLIPScore and OCR evaluation while achieving comparable performance on FID.
+          </p>
+        </div>
+        <img src="./static/images/study1.jpg" alt="more_results_multi" style="width:70%; ">
+        <div text-align:center>
+          <p class="center">
+            User studies for whole-image generation and part-image generation tasks.
           </p>
         </div>
 
@@ -282,6 +271,7 @@
       <div class="column is-8">
         <div class="content">
           <p>
+            For help or issues using TextDiffuser, please email Jingye Chen (qwerty.chen@connect.ust.hk), Yupan Huang (huangyp28@mail2.sysu.edu.cn) or submit a GitHub issue. For other communications related to TextDiffuser, please contact Lei Cui (lecu@microsoft.com) or Furu Wei (fuwei@microsoft.com).
             This website is licensed under a <a rel="license"
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
