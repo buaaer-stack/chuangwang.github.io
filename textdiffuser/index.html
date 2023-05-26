@@ -42,56 +42,6 @@
 </head>
 <body>
 
-<div class="scrolling-image">
-    <img src="./static/images/scroll.jpg" alt="scrolling image">
-</div>
-
-
-<style>
-  /* 定义动画属性 */
-  @keyframes scroll {
-      0% {
-          transform: translateX(0%);
-          /* 初始位置 */
-      }
-
-      50% {
-          transform: translateX(-50%);
-          /* 滚动到最左侧 */
-      }
-
-      50.01% {
-          transform: translateX(0%);
-          /* 立即出现在最右侧 */
-      }
-
-      100% {
-          transform: translateX(-50%);
-          /* 滚动到最左侧 */
-      }
-
-  }
-
-  .scrolling-image {
-      overflow: hidden;
-      /* 隐藏超出边界的内容 */
-  }
-
-  .scrolling-image:hover img {
-      animation-play-state: paused;
-  }
-
-  /* 将动画应用于图像 */
-  .scrolling-image img {
-      width: 250%;
-      /* 图片宽度为容器宽度的3倍 */
-      animation: scroll 105s linear infinite;
-      /* 设置动画属性 */
-      animation-play-state: running; /* 初始化动画状态为运行 */
-  }
-
-
-</style>
 
 
 <section class="hero">
@@ -164,6 +114,58 @@
   </div>
 </section>
 
+
+
+<div class="scrolling-image">
+  <img src="./static/images/scroll.jpg" alt="scrolling image">
+</div>
+
+
+<style>
+/* 定义动画属性 */
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+        /* 初始位置 */
+    }
+
+    50% {
+        transform: translateX(-50%);
+        /* 滚动到最左侧 */
+    }
+
+    50.01% {
+        transform: translateX(0%);
+        /* 立即出现在最右侧 */
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* 滚动到最左侧 */
+    }
+
+}
+
+.scrolling-image {
+    overflow: hidden;
+    /* 隐藏超出边界的内容 */
+}
+
+.scrolling-image:hover img {
+    animation-play-state: paused;
+}
+
+/* 将动画应用于图像 */
+.scrolling-image img {
+    width: 250%;
+    /* 图片宽度为容器宽度的3倍 */
+    animation: scroll 105s linear infinite;
+    /* 设置动画属性 */
+    animation-play-state: running; /* 初始化动画状态为运行 */
+}
+
+
+</style>
 
 
 <!-- Teaser. -->
