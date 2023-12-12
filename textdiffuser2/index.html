@@ -207,14 +207,14 @@
     }
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active-dot";
-    setTimeout(showSlides, 6000); // Change image every 4 seconds
+    // setTimeout(showSlides, 6000); // Change image every 4 seconds
   }
   
   function currentSlide(n) {
     slideIndex = n - 1;
     showSlides();
-    clearTimeout(autoSlide);
-    autoSlide = setTimeout(showSlides, 6000);
+    // clearTimeout(autoSlide);
+    // autoSlide = setTimeout(showSlides, 6000);
   }
   
   // let autoSlide = setTimeout(showSlides, 6000);
